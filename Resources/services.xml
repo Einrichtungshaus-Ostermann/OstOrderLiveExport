@@ -2,7 +2,6 @@
 <container xmlns="http://symfony.com/schema/dic/services"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
-
     <services>
 
         <!-- configuration -->
@@ -11,10 +10,16 @@
             <argument type="string">OstOrderLiveExport</argument>
         </service>
 
-        <service id="ost_order_live_export.subscriber.order_subscriber" class="OstOrderLiveExport\Subscriber\OrderSubscriber">
+        <!-- services -->
+        <service id="ost_order_live_export.order_export_service" class="OstOrderLiveExport\Services\OrderExportService">
             <argument type="service" id="ost_cogito_soap_api.cogito_api_service"/>
         </service>
 
-    </services>
+        <!-- events and hooks -->
+        <service id="ost_order_live_export.listeners.core.s_order" class="OstOrderLiveExport\Listeners\Core\sOrder">
+            <argument type="service" id="ost_order_live_export.order_export_service" />
+            <tag name="shopware.event_listener" method="afterSaveOrder" event="sOrder::sSaveOrder::after" />
+        </service>
 
+    </services>
 </container>
