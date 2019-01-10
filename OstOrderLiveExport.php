@@ -11,6 +11,7 @@
  *
  * 1.0.1
  * - fixed configuration
+ * - fixed plugin name
  *
  * @package   OstOrderLiveExport
  *
