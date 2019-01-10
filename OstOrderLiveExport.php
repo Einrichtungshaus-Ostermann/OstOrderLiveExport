@@ -3,10 +3,14 @@
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - Order Live Export
  *
- * Export Orders on finish to the API
+ * Automatically exports orders via cogito soap api as soon directly
+ * after shopware saves the order.
  *
  * 1.0.0
  * - initial release
+ *
+ * 1.0.1
+ * - fixed configuration
  *
  * @package   OstOrderLiveExport
  *
@@ -38,8 +42,6 @@ class OstOrderLiveExport extends Plugin
         parent::build($container);
     }
 
-
-
     /**
      * Activate the plugin.
      *
@@ -50,8 +52,6 @@ class OstOrderLiveExport extends Plugin
         // clear complete cache after we activated the plugin
         $context->scheduleClearCache($context::CACHE_LIST_ALL);
     }
-
-
 
     /**
      * Install the plugin.
@@ -82,8 +82,6 @@ class OstOrderLiveExport extends Plugin
         parent::install($context);
     }
 
-
-
     /**
      * Update the plugin.
      *
@@ -101,8 +99,6 @@ class OstOrderLiveExport extends Plugin
         // call default updater
         parent::update($context);
     }
-
-
 
     /**
      * Uninstall the plugin.

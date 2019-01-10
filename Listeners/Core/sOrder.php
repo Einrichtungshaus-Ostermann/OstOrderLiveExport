@@ -45,6 +45,11 @@ class sOrder
         // get the order number
         $number = $arguments->getReturn();
 
+        // active?
+        if ( (boolean) Shopware()->Container()->get( "ost_order_live_export.configuration" )['autoExportEnabled'] == false )
+            // nope
+            return;
+
         // and send it
         $this->orderExportService->export( $number );
     }
