@@ -43,7 +43,7 @@ class sOrder
     public function afterSaveOrder(HookArgs $arguments)
     {
         // get the order number
-        $number = $arguments->getReturn();
+        $number = (string) $arguments->getReturn();
 
         // active?
         if ( (boolean) Shopware()->Container()->get( "ost_order_live_export.configuration" )['autoExportEnabled'] == false )

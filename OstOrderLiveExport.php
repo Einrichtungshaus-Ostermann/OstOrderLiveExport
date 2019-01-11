@@ -13,6 +13,9 @@
  * - fixed configuration
  * - fixed plugin name
  *
+ * 1.0.2
+ * - fixed type hinting of ordernumber
+ *
  * @package   OstOrderLiveExport
  *
  * @author    Tim Windelschmidt <tim.windelschmidt@ostermann.de>
