@@ -12,7 +12,13 @@
 
         <!-- services -->
         <service id="ost_order_live_export.order_export_service" class="OstOrderLiveExport\Services\OrderExportService">
-            <argument type="service" id="ost_cogito_soap_api.cogito_api_service"/>
+            <argument type="service" id="ost_order_live_export.configuration" />
+        </service>
+
+        <service id="ost_order_live_export.order_export_service.adapter.cogito_soap_api" class="OstOrderLiveExport\Services\Adapter\CogitoSoapApi">
+        </service>
+
+        <service id="ost_order_live_export.order_export_service.adapter.csv_writer" class="OstOrderLiveExport\Services\Adapter\CsvWriter">
         </service>
 
         <!-- events and hooks -->

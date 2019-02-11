@@ -12,23 +12,21 @@
 
 namespace OstOrderLiveExport\Services;
 
-use OstCogitoSoapApi\Bundles\OstCogitoSoapApiBundle\CogitoApiService;
-
 class OrderExportService implements OrderExportServiceInterface
 {
     /**
-     * @var CogitoApiService
+     * @var array
      */
-    private $cogitoApi;
+    private $configuration;
 
     /**
      * ...
      *
-     * @param CogitoApiService $cogitoApi
+     * @param array $configuration
      */
-    public function __construct(CogitoApiService $cogitoApi)
+    public function __construct(array $configuration)
     {
-        $this->cogitoApi = $cogitoApi;
+        $this->configuration = $configuration;
     }
 
     /**
@@ -36,7 +34,21 @@ class OrderExportService implements OrderExportServiceInterface
      */
     public function export( string $number )
     {
-        // call the api
-        $this->cogitoApi->exportOrder($number);
+        // switch by adapter
+        switch ( $this->configuration['adapter'] )
+        {
+            case "CogitoSoapApi":
+                /* @var $exporter OrderExportServiceInterface */
+                $exporter = Shopware()->Container()->get("ost_order_live_export.order_export_service.adapter.cogito_soap_api");
+                $exporter->export($number);
+                break;
+            case "CsvWriter":
+                /* @var $exporter OrderExportServiceInterface */
+                $exporter = Shopware()->Container()->get("ost_order_live_export.order_export_service.adapter.csv_writer");
+                $exporter->export($number);
+                break;
+            default:
+                throw new \Exception("invalid adapter");
+        }
     }
 }

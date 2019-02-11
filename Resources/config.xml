@@ -14,5 +14,22 @@
             <description>Soll der automatische Export der Bestellungen aktiviert werden?</description>
         </element>
 
+        <element type="select">
+            <name>adapter</name>
+            <label>Adapter</label>
+            <value>CogitoSoapApi</value>
+            <description>Wie sollen die Bestellungen exportiert werden?</description>
+            <store>
+                <option>
+                    <value>CogitoSoapApi</value>
+                    <label>via Cogito SOAP API</label>
+                </option>
+                <option>
+                    <value>CsvWriter</value>
+                    <label>via CSV Writer</label>
+                </option>
+            </store>
+        </element>
+
     </elements>
 </config>

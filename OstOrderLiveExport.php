@@ -16,6 +16,9 @@
  * 1.0.2
  * - fixed type hinting of ordernumber
  *
+ * 1.0.3
+ * - added cogito api and csv writer and configurable adapters
+ *
  * @package   OstOrderLiveExport
  *
  * @author    Tim Windelschmidt <tim.windelschmidt@ostermann.de>
