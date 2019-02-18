@@ -10,7 +10,7 @@
  * @license   proprietary
  */
 
-namespace OstOrderLiveExport\Services;
+namespace OstOrderLiveExport\Services\Adapter;
 
 use OstOrderCsvWriter\Services\CsvExportService;
 

@@ -19,6 +19,9 @@
  * 1.0.3
  * - added cogito api and csv writer and configurable adapters
  *
+ * 1.0.4
+ * - fixed adapter namespace
+ *
  * @package   OstOrderLiveExport
  *
  * @author    Tim Windelschmidt <tim.windelschmidt@ostermann.de>
