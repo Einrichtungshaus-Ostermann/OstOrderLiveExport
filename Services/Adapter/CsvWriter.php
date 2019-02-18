@@ -13,6 +13,7 @@
 namespace OstOrderLiveExport\Services\Adapter;
 
 use OstOrderCsvWriter\Services\CsvExportService;
+use OstOrderLiveExport\Services\OrderExportServiceInterface;
 
 class CsvWriter implements OrderExportServiceInterface
 {

@@ -13,6 +13,7 @@
 namespace OstOrderLiveExport\Services\Adapter;
 
 use OstCogitoSoapApi\Bundles\OstCogitoSoapApiBundle\CogitoApiService;
+use OstOrderLiveExport\Services\OrderExportServiceInterface;
 
 class CogitoSoapApi implements OrderExportServiceInterface
 {

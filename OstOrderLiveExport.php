@@ -22,6 +22,9 @@
  * 1.0.4
  * - fixed adapter namespace
  *
+ * 1.0.5
+ * - fixed import of adapter interface
+ *
  * @package   OstOrderLiveExport
  *
  * @author    Tim Windelschmidt <tim.windelschmidt@ostermann.de>
